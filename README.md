@@ -14,24 +14,6 @@ This is a curated collection of automation scripts written in **Bash** and **Pyt
 
 ---
 
-## Repository Structure
-
-automation-scripts/
-├── bash/
-│   ├── script1.sh
-│   └── ...
-├── python/
-│   ├── script1.py
-│   └── ...
-├── terraform/              # Coming soon
-│   └── ...
-├── ansible/                # Coming soon
-│   └── ...
-├── LICENSE
-└── README.md
-
----
-
 ## Getting Started
 
 1. **Clone the repo:**
