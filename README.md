@@ -76,4 +76,3 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ---
 
-For updates and more tools, visit [vincentmoore.ai](https://vincentmoore.ai).
