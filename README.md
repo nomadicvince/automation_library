@@ -10,7 +10,7 @@
 
 ## Overview
 
-This is a curated collection of automation scripts written in **Bash** and **Python**, with future additions planned for **Terraform** and **Ansible**. These scripts are designed to simplify infrastructure management, streamline DevOps workflows, and serve as a personal toolkit for recurring tasks.
+This is a curated collection of automation scripts written in **Bash** and **Python**, with future additions planned for **Terraform** and **Ansible**. These scripts are designed to simplify infrastructure management, streamline DevOps workflows, and serve as a personal toolkit for recurring tasks. Bash scripts are optimized for Fedora, but can be editied for any Linux distro.
 
 ---
 
