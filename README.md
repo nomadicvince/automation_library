@@ -36,7 +36,7 @@ automation-scripts/
 
 1. **Clone the repo:**
 
-    git clone https://github.com/vincentmoore/automation-scripts.git  
+    git clone https://github.com/nomadicvince/automation-scripts.git  
     cd automation-scripts
 
 2. **Navigate to a directory:**
