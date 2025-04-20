@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# Step 1: Configure Git
+echo "[+] Configuring Git..."
+read -p "Enter your full name: " fullname
+read -p "Enter your GitHub email: " email
+git config --global user.name "$fullname"
+git config --global user.email "$email"
+
+# Step 2: Install GitHub CLI
+echo "[+] Installing GitHub CLI..."
+if [ -x "$(command -v dnf)" ]; then
+  sudo dnf install gh -y
+elif [ -x "$(command -v apt)" ]; then
+  type -p curl >/dev/null || sudo apt install curl -y
+  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | \
+    sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+  sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+  echo "deb [arch=$(dpkg --print-architecture) \
+signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] \
+https://cli.github.com/packages stable main" | \
+    sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+  sudo apt update
+  sudo apt install gh -y
+fi
+
+# Step 3: GitHub Authentication
+echo "[+] Logging into GitHub CLI..."
+gh auth login
+
+# Step 4: SSH Key Generation
+echo "[+] Generating SSH key..."
+ssh-keygen -t ed25519 -C "$email" -f ~/.ssh/id_ed25519 -N ""
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+# Step 5: Display Key and Next Steps
+echo ""
+echo "=== SSH public key (copy this to GitHub) ==="
+cat ~/.ssh/id_ed25519.pub
+echo "==========================================="
+echo ""
+echo "=> Visit https://github.com/settings/ssh/new"
+echo "=> Paste this key with a title like 'Linux Workstation'"
+echo "=> After adding, test with: ssh -T git@github.com"
+
+________________________________________
+
+nano github-lite-setup.sh
+# paste the script above
+chmod +x github-lite-setup.sh
+./github-lite-setup.sh
