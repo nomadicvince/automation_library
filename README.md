@@ -1,2 +1,2 @@
-#  Bash Library
-Bash Script Library for automatic
+#  Automation Scripts Library
+Script Library for automation
